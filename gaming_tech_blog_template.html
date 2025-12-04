@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TechGamerHub — Pro Gaming Guides, Free Fire, BGMI, PUBG, Low Device Settings, Gaming Tech, and Mobile Reviews">
+  <title>TechGamerHub - Pro Gaming & Tech Blog</title>
+
+  <style>
+    :root {
+      --bg: #1e1e2f;
+      --card: #2a2a3c;
+      --dark: #121224;
+      --text: #e0e0e0;
+      --accent: #ff6b00;
+      --radius: 12px;
+      --shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: "Segoe UI", sans-serif; }
+    body { background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+    header { background: var(--dark); color: #fff; padding: 40px 20px; text-align: center; box-shadow: var(--shadow); border-bottom: 2px solid var(--accent); }
+    header h1 { font-size: 44px; font-weight: 800; letter-spacing: 1px; }
+    header p { opacity: 0.85; font-size: 18px; }
+
+    nav { display: flex; justify-content: center; gap: 16px; padding: 18px; background: #181828; flex-wrap: wrap; border-bottom: 1px solid #333; }
+    nav a { color: #fff; text-decoration: none; padding: 10px 20px; border-radius: var(--radius); font-weight: 600; transition: 0.3s; }
+    nav a:hover { background: var(--accent); color: #fff; }
+
+    .container { width: 92%; max-width: 1150px; margin: 30px auto; }
+
+    .search-box input { width: 100%; padding: 14px; border-radius: var(--radius); border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.4); font-size: 16px; background: #2f2f45; color: #fff; }
+
+    .post { background: var(--card); border-radius: var(--radius); padding: 25px; margin-bottom: 28px; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s; opacity: 0; transform: translateY(20px); display: flex; flex-direction: column; }
+    .post.visible { opacity: 1; transform: translateY(0); }
+    .post:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
+
+    .post img.main-image { width: 100%; border-radius: var(--radius); margin-bottom: 15px; }
+    .post-header { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+    .post-header img.thumb { width:50px; height:50px; border-radius:8px; object-fit:cover; }
+
+    .post h2 { font-size: 28px; margin-bottom: 12px; color: #ff6b00; }
+    .post p, .post ul { font-size: 16px; line-height: 1.6; }
+    .post ul li { margin-bottom: 6px; }
+
+    .tags .tag { background: var(--accent); color: white; padding: 5px 12px; border-radius: 20px; font-size: 13px; margin-right: 6px; display: inline-block; margin-bottom: 6px; }
+
+    footer { background: var(--dark); color: #fff; text-align:center; padding: 28px; margin-top: 40px; border-top: 2px solid var(--accent); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TechGamerHub</h1>
+  <p>Your Ultimate Gaming & Tech Destination — Tips, Guides, Settings & More</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#freefire">Free Fire</a>
+  <a href="#bgmi">BGMI</a>
+  <a href="#pubg">PUBG</a>
+  <a href="#lowdevice">Low Device Settings</a>
+  <a href="#gamingtech">Gaming Tech</a>
+  <a href="#tips">Tips</a>
+  <a href="#about">About</a>
+</nav>
+
+<div class="container">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Gaming, Tech, Settings..." onkeyup="searchPosts()">
+  </div>
+</div>
+
+<div class="container" id="content"></div>
+
+<footer>
+  © 2025 TechGamerHub — Pro Gaming & Tech Blog
+</footer>
+
+<script>
+const posts = [
+  // 20+ gaming and tech guides
+  { title: "Free Fire 2025 Pro Guide: Sensitivity, Settings & Movement Tips", tags: ["Free Fire","Settings","Tips","Movement"], image: "images/freefire.jpg", thumb: "images/freefire_icon.png", content: `<ul><li>General Sensitivity: 98</li><li>Red Dot: 85</li><li>2X Scope: 78</li><li>4X Scope: 72</li><li>Graphics: Smooth</li><li>Movement Tips: Strafe, crouch jump, bunny hop</li><li>Weapon Custom ADS Sensitivity</li></ul>`},
+  { title: "BGMI Advanced Shooting & Settings Guide", tags: ["BGMI","Tips","Settings"], image: "images/bgmi.jpg", thumb: "images/bgmi_icon.png", content: `<ul><li>No Recoil Code: 7854-9912-2205-8741</li><li>Scope Sensitivity: 2X,4X,6X</li><li>Movement: Bunny hop, cover usage</li><li>Graphics: Smooth</li></ul>`},
+  { title: "PUBG Mobile Complete Guide: Sensitivity & Movement", tags: ["PUBG","Tips","Settings"], image: "images/pubg.jpg", thumb: "images/pubg_icon.png", content: `<ul><li>Gyroscope: No Scope 300%, Red Dot 250%</li><li>Graphics: Smooth, FPS: Ultra</li><li>Movement: Crouch jump, avoid open areas</li><li>Weapon Tips: Burst fire for ARs</li></ul>`},
+  { title: "Low Device Settings for Smooth Gaming", tags: ["Low Device","Settings","Tips"], image: "images/lowdevice.jpg", thumb: "images/lowdevice_icon.png", content: `<ul><li>Graphics: Smooth</li><li>FPS: High</li><li>Shadows: Off</li><li>Anti-aliasing: Off</li><li>Close background apps</li><li>Enable Game Mode</li></ul>`},
+  { title: "Top Gaming Accessories for Mobile Players", tags: ["Gaming Tech","Accessories"], image: "images/accessories.jpg", thumb: "images/accessories_icon.png", content: `<ul><li>Controller grips</li><li>High refresh rate displays</li><li>Bluetooth earphones</li><li>Cooling fans</li></ul>`},
+  { title: "Optimize Your Phone for Gaming Performance", tags: ["Gaming Tech","Optimization"], image: "images/optimization.jpg", thumb: "images/optimization_icon.png", content: `<ul><li>Clear cache</li><li>Close background apps</li><li>Enable Game Mode</li><li>Lower background processes</li></ul>`},
+  { title: "Best Gaming Phones 2025", tags:["Tech","Phones"], image:"images/phones.jpg", thumb:"images/phones_icon.png", content:`<ul><li>Poco X6 Neo</li><li>Realme 12 Pro Lite</li><li>Redmi Note 14 Pro</li></ul>`},
+  { title: "Top 5 Mobile Games for Low-End Devices", tags:["Gaming","Low Device"], image:"images/lowgames.jpg", thumb:"images/lowgames_icon.png", content:`<ul><li>Free Fire Lite</li><li>PUBG Lite</li><li>Among Us</li><li>Mini Militia</li><li>Subway Surfers</li></ul>`},
+  { title: "Best Graphics Settings for Low Devices", tags:["Tips","Low Device"], image:"images/graphics.jpg", thumb:"images/graphics_icon.png", content:`<ul><li>Graphics: Smooth</li><li>FPS: High</li><li>Shadows: Off</li><li>Anti-aliasing: Off</li></ul>`},
+  { title: "Top 10 Gaming Apps for Mobile", tags:["Tech","Apps"], image:"images/apps.jpg", thumb:"images/apps_icon.png", content:`<ul><li>Game Booster</li><li>Discord</li><li>Spotify</li><li>DU Recorder</li><li>Speedtest</li></ul>`},
+  { title: "Free Fire Advanced Movement Guide", tags:["Free Fire","Movement"], image:"images/ff_movement.jpg", thumb:"images/ff_movement_icon.png", content:`<ul><li>Strafe while shooting</li><li>Bunny hop</li><li>Quick crouch jump</li><li>Use cover efficiently</li></ul>`},
+  { title: "BGMI Weapon Recoil Tips", tags:["BGMI","Weapons"], image:"images/bgmi_recoil.jpg", thumb:"images/bgmi_recoil_icon.png", content:`<ul><li>M416: Burst fire</li><li>AKM: Controlled spray</li><li>Sniper: Quick ADS adjustments</li></ul>`},
+  { title: "PUBG Pro Settings & Tips", tags:["PUBG","Settings"], image:"images/pubg_pro.jpg", thumb:"images/pubg_pro_icon.png", content:`<ul><li>Gyroscope: 300%</li><li>Scope Sensitivity: Medium-High</li><li>Graphics: Smooth, FPS Ultra</li><li>Movement: Crouch jump & strafe</li></ul>`},
+  { title: "Best Mobile Cooling Techniques", tags:["Gaming Tech","Tips"], image:"images/cooling.jpg", thumb:"images/cooling_icon.png", content:`<ul><li>External cooling pads</li><li>Remove case during long gaming</li><li>Keep phone ventilated</li></ul>`},
+  { title: "Battery Optimization for Gaming", tags:["Tips","Tech"], image:"images/battery.jpg", thumb:"images/battery_icon.png", content:`<ul><li>Low brightness</li><li>Close background apps</li><li>Enable battery saver mode</li></ul>`},
+  { title: "Top 10 Free Fire Skins & Cost Tips", tags:["Free Fire","Tips"], image:"images/skins.jpg", thumb:"images/skins_icon.png", content:`<ul><li>Best weapon skins</li><li>Cost-saving tips</li><li>Events to get free skins</li></ul>`},
+  { title: "Best BGMI Custom HUD Setup", tags:["BGMI","Settings"], image:"images/bgmi_hud.jpg", thumb:"images/bgmi_hud_icon.png", content:`<ul><li>Quick access buttons</li><li>Jump & prone keys</li><li>Optimized for thumb reach</li></ul>`},
+  { title: "PUBG Mobile Map Tips", tags:["PUBG","Tips"], image:"images/pubg_map.jpg", thumb:"images/pubg_map_icon.png", content:`<ul><li>Hot drop zones</li><li>Loot tips</li><li>Safe rotation paths</li></ul>`},
+  { title: "Gaming Accessories Buying Guide", tags:["Gaming Tech","Accessories"], image:"images/accessory_guide.jpg", thumb:"images/accessory_icon.png", content:`<ul><li>Controller grips</li><li>Earphones</li><li>Cooling pads</li><li>High refresh rate displays</li></ul>`},
+  { title: "Top Free Fire Events 2025", tags:["Free Fire","Events"], image:"images/events.jpg", thumb:"images/events_icon.png", content:`<ul><li>Weekly gold events</li><li>Spin & luck rewards</li><li>Seasonal events for free items</li></ul>`}
+];
+
+function addPostHTML(p){
+  const postHTML = document.createElement('div');
+  postHTML.className = 'post';
+  postHTML.innerHTML = `<div class='post-header'><img src='${p.thumb}' class='thumb' alt='${p.title}'><h2>${p.title}</h2></div><div class='tags'>${p.tags.map(t=>`<span class='tag'>${t}</span>`).join(' ')}</div><img src='${p.image}' class='main-image' alt='${p.title}'><p>${p.content}</p>`;
+  document.getElementById("content").appendChild(postHTML);
+  setTimeout(()=>{postHTML.classList.add('visible');},100);
+}
+
+function loadHome(){document.getElementById("content").innerHTML="";posts.forEach(addPostHTML);}
+function loadTag(tag){document.getElementById("content").innerHTML="";posts.filter(p=>p.tags.includes(tag)).forEach(addPostHTML);}
+function searchPosts(){const q=document.getElementById('searchInput').value.toLowerCase();document.getElementById('content').innerHTML="";posts.filter(p=>p.title.toLowerCase().includes(q)||p.tags.join(" ").toLowerCase().includes(q)).forEach(addPostHTML);}
+function loadAbout(){document.getElementById("content").innerHTML=`<div class='post visible'><h2>About TechGamerHub</h2><p>TechGamerHub is a professional gaming & tech blog providing guides, sensitivity codes, low-device tips, gaming tech, movement and strategy tips for Free Fire, BGMI, PUBG, and more.</p></div>`;}
+function router(){const hash=location.hash.replace('#','');if(!hash||hash==='home')loadHome();else if(hash==='freefire')loadTag('Free Fire');else if(hash==='bgmi')loadTag('BGMI');else if(hash==='pubg')loadTag('PUBG');else if(hash==='lowdevice')loadTag('Low Device');else if(hash==='gamingtech')loadTag('Gaming Tech');else if(hash==='tips')loadTag('Tips');else if(hash==='about')loadAbout();}
+window.addEventListener("hashchange",router);router();
+</script>
+
+</body>
+</html>
